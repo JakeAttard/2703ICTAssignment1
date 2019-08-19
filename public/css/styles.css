@@ -1,0 +1,77 @@
+input {
+    width: 100%;    /* keep the input width as width as possible */
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    padding: 5px;
+}
+
+
+.btn-margin {
+    margin: 0px 2px;
+}
+
+/*** Form ***/
+
+.form-border {
+    border: 5px;
+    color: black;
+}
+.name, .message {
+    margin: 15px auto;
+    padding: 0 15px;
+}
+
+#messagetextfield {
+    height: 100px;
+}
+
+#messagetextarea {
+    width: 100%;    /* keep the input width as width as possible */
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    padding: 5px;
+}
+
+.error {
+    color: red;
+}
+
+/*** Post ***/
+.posts {
+    margin: 15px auto;
+    border: 5px;
+    border-color: black;
+    border-style: solid;
+    min-height: 150px;
+}
+
+.avatar {
+    padding-top:15px;
+    width:80%;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.username {
+    padding: 0 15px;
+    font-size: 1.5em;
+}
+
+.error-middle {
+    text-align: center;
+}
+
+/*** Comment ***/
+
+.list-group li:nth-child(odd) {
+    background-color: pink;
+}
+.list-group li:nth-child(even) {
+    background-color: cornflowerblue;
+}
+
+.list-group-item {
+    margin: 20px auto;
+}
