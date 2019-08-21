@@ -12,8 +12,41 @@
     </head>
     
     <body>
+
+    <!-- NavBar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">PostNow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Friends</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">LogIn</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
         <!-- NavBar-->
-        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <a class="navbar-brand ml-4" href="#">PostNow</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,10 +67,10 @@
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav> -->
 
-        <div class="backgroundImage"></div>
-
+        <!-- Image in the contentContainer div -->
+        <!-- style="background-image: url('{{asset('images/postnowbackgroundimage.jpeg')}}')" -->
         <div class="contentContainer">
             @yield('contentContainer')
         </div>
