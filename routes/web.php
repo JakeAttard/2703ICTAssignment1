@@ -18,3 +18,22 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('pages/homepage');
 });
+
+Route::post('postAdded', function(){
+    $postId = request('postId');
+    $postName = request('name');
+    $postTitle = request('title');
+    $postMessage = request('message');
+
+    $createPostError = checkPostForm($postName, $postTitle, $postMessage);
+    if(!empty($error)) {
+        // Add query to database
+    }
+
+    $post = addPost($postName, $postTitle, $postMessage);
+    if($post) {
+        return redirect('/');
+    } else {
+        print("Error: Your post couldn't be added.");
+    }
+});

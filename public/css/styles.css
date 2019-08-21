@@ -27,7 +27,7 @@ input {
     border: 5px;
     color: black;
 }
-.name, .message {
+.name, .message, .title {
     margin: 15px auto;
     padding: 0 15px;
 }
