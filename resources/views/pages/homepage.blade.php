@@ -27,9 +27,8 @@
                 </div>
 
                 <div class="message">
-                    <button class="btn btn-primary" type="submit">POSTNOW</button>
+                    <button type="submit" class="btn btn-secondary">POSTNOW</button>
                 </div>
-
             </form>
         </div>
          <!-- Input Form Ends -->      
