@@ -16,15 +16,15 @@
                 
                 <div class="name">
                     <label>User Name: </label><br>
-                    <input type="text" name="postName" value="" placeholder="Please enter your name">
+                    <input type="text" name="postName" value="{{$postName}}" placeholder="Please enter your name">
                 </div>
 
                 <div class="title"><label>Post Title: </label><br>
-                    <input type="text" name="postTitle" value="" placeholder="Please enter a title">
+                    <input type="text" name="postTitle" value="{{$postTitle}}" placeholder="Please enter a title">
                 </div>
 
                 <div class="message"><label>Post Message: </label><br>
-                <textarea id="messagetextarea" name="postMessage" rows="4" placeholder="Please enter new message"></textarea>
+                <textarea id="messagetextarea" name="postMessage" rows="4" placeholder="Please enter new message">{{$postMessage}}</textarea>
                 </div>
 
                 <div class="message">
@@ -36,7 +36,11 @@
                 @endif
             </form>
         </div>
-        <!-- Input Form Ends -->      
-        <div class="col-sm-8"></div>
+        <!-- Input Form Ends -->
+
+        <!-- Posts Section -->
+        <div class="col-sm-8">
+            
+        </div>
     </div>
 @endsection
