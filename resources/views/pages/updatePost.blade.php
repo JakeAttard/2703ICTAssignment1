@@ -1,18 +1,17 @@
 @extends('layouts.master')
 
 @section('title')
-    HomePage
+    Update Post
 @endsection
 
 @section('contentContainer')
-
     <div class="row">
         
         <!-- Input Form Starts -->
-        <div class="col-sm-4 form-border">    
-            <form method="post" action="postAdded">
-                {{csrf_field()}}
-                <div class="name form-group"><h3>Create A New Post</h3></div>
+        <div class="col-sm-4 form-border">
+            <form method="post" action="updatePostAdded">
+                {{csrf_field()}}    
+                <div class="name form-group"><h3>Update Post</h3></div>
                 
                 <div class="name">
                     <label>User Name: </label><br>
@@ -35,8 +34,6 @@
                     <p class="name error">Error: {{$createPostError}}</p>
                 @endif
             </form>
-        </div>
-        <!-- Input Form Ends -->      
-        <div class="col-sm-8"></div>
-    </div>
+        </div> 
+    </div>   
 @endsection

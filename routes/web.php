@@ -19,11 +19,12 @@ Route::get('/', function () {
     return view('pages/homepage');
 });
 
+// Post Form
 Route::post('postAdded', function(){
     $postId = request('postId');
-    $postName = request('name');
-    $postTitle = request('title');
-    $postMessage = request('message');
+    $postName = request('postName');
+    $postTitle = request('postTitle');
+    $postMessage = request('postMessage');
 
     $createPostError = checkPostForm($postName, $postTitle, $postMessage);
     if(!empty($error)) {
