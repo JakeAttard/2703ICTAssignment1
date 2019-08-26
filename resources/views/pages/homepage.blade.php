@@ -40,7 +40,9 @@
 
         <!-- Posts Section -->
         <div class="col-sm-8">
-            
+            @foreach($posts as $post)
+                <p>{{$post->postId}}: {{$post->postName}}: {{$post->postTitle}}: {{$post->postMessage}}<p>
+            @endforeach
         </div>
     </div>
 @endsection

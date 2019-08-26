@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/', function () {
-    return view('pages/homepage');
+    $sql = "select * from post";
+    $posts = DB::select($sql);
+    return view('pages.homepage')->with('posts', $posts);
 });
 
 // Post Form
