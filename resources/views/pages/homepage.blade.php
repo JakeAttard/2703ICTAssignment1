@@ -36,6 +36,7 @@
                 @endif
             </form>
         </div>
+        <div class="col-sm-8"></div>
          <!-- Input Form Ends -->      
     </div>
 @endsection

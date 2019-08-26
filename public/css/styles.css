@@ -8,6 +8,10 @@
     -o-background-size: cover;
 } */
 
+.row {
+    background-color: black;
+}
+
 input {
     width: 100%;    /* keep the input width as width as possible */
     border: 2px;
