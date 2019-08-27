@@ -38,7 +38,7 @@
         <div class="col-sm-8">
 
             <div class="postnowFeed">
-                <div class="name form-group">
+                <div class="feedTitle">
                     <h3>PostNow Feed</h3>
                 </div>
                 
@@ -47,7 +47,7 @@
                 <div class="postNowPosts">
                     <!-- <p>{{$post->postId}}</p> <br> -->
                     
-                    <img src="{{asset('images/postnowavatarimg.jpg')}}" width="80px" height="80px"  alt="PostNow Avatar Picture">
+                    <img src="{{asset('images/postnowavatarimg.jpg')}}" class="postNowAvatarImg" alt="PostNow Avatar Picture">
                     <strong>{{$post->postName}}</strong> <br>
                     <strong>{{$post->postTitle}}</strong> <br>
                     <p>{{$post->postMessage}}<p>
