@@ -10,17 +10,17 @@
         
         <!-- Input Form Starts -->
         <div class="col-sm-4 form-border">    
-            <form method="post" action="postAdded">
+            <form method="post" action="{{url('postAdded')}}">
                 {{csrf_field()}}
                 <div class="name form-group"><h3>Create A New Post</h3></div>
                 
                 <div class="name">
                     <label>User Name: </label><br>
-                    <input type="text" name="postName" value="" placeholder="Please enter your name">
+                    <input type="text" name="postName" placeholder="Please enter your name">
                 </div>
 
                 <div class="title"><label>Post Title: </label><br>
-                    <input type="text" name="postTitle" value="" placeholder="Please enter a title">
+                    <input type="text" name="postTitle" placeholder="Please enter a title">
                 </div>
 
                 <div class="message"><label>Post Message: </label><br>
@@ -30,10 +30,6 @@
                 <div class="message">
                     <button type="submit" class="btn btn-secondary">POSTNOW</button>
                 </div>
-
-                @if (!empty($createPostError))
-                    <p class="name error">Error: {{$createPostError}}</p>
-                @endif
             </form>
         </div>
         <!-- Input Form Ends -->

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    $userPosts = getPosts();
     return view('layouts/master');
 });
 
@@ -21,22 +22,17 @@ Route::get('/', function () {
     return view('pages.homepage')->with('posts', $posts);
 });
 
-// Post Form
-Route::post('postAdded', function(){
-    $postId = request('postId');
+Route::post('postAdded', function() {
     $postName = request('postName');
     $postTitle = request('postTitle');
     $postMessage = request('postMessage');
-
-    $createPostError = checkPostForm($postName, $postTitle, $postMessage);
-    if(!empty($error)) {
-        // Add query to database
-    }
-
-    $post = addPost($postName, $postTitle, $postMessage);
-    if($post) {
-        return redirect('/');
-    } else {
-        print("Error: Your post couldn't be added.");
-    }
+    $postDate = date('Y-m-d H:i:s');
+    $postId = add_post($postName,$postTitle,$postMessage, $postDate);
 });
+
+function add_post($postName, $postTitle, $postMessage, $postDate) {
+    $query = "INSERT into Post (postName, postTitle, postMessage, postCreated) VALUES (?, ?, ?, ?)";
+    DB::insert($query,array($postName, $postTitle, $postMessage, $postDate));
+    $postId = DB::getPdo()->lastInsertId();
+    return $postId;
+}
