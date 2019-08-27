@@ -55,6 +55,7 @@
                     <strong>{{$post->postName}}</strong> <br>
                     <strong>{{$post->postTitle}}</strong> <br>
                     <p>{{$post->postMessage}}<p>
+                    <p>Post Created: {{$post->postCreated}}</p>
                 </div>
                 @endforeach
             </div>
