@@ -23,6 +23,11 @@ input {
     padding: 20px;
 }
 
+.postNowAvatarImg {
+    width: "100px";
+    height: "80px";
+}
+
 .btn-margin {
     margin: 0px 2px;
 }

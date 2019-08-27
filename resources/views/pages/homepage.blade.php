@@ -49,7 +49,12 @@
                 <!-- This is looping through all the posts -->
                 @foreach($posts as $post)
                 <div class="postNowPosts">
-                    <p>{{$post->postId}}: {{$post->postName}}: {{$post->postTitle}}: {{$post->postMessage}}<p>
+                    <!-- <p>{{$post->postId}}</p> <br> -->
+                    
+                    <img src="{{asset('images/postnowavatarimg.jpg')}}" width="80px" height="80px"  alt="PostNow Avatar Picture">
+                    <strong>{{$post->postName}}</strong> <br>
+                    <strong>{{$post->postTitle}}</strong> <br>
+                    <p>{{$post->postMessage}}<p>
                 </div>
                 @endforeach
             </div>
