@@ -40,9 +40,19 @@
 
         <!-- Posts Section -->
         <div class="col-sm-8">
-            @foreach($posts as $post)
-                <p>{{$post->postId}}: {{$post->postName}}: {{$post->postTitle}}: {{$post->postMessage}}<p>
-            @endforeach
+
+            <div class="postnowFeed">
+                <div class="name form-group">
+                    <h3>PostNow Feed</h3>
+                </div>
+                
+                <!-- This is looping through all the posts -->
+                @foreach($posts as $post)
+                <div class="postNowPosts">
+                    <p>{{$post->postId}}: {{$post->postName}}: {{$post->postTitle}}: {{$post->postMessage}}<p>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection

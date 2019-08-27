@@ -7,9 +7,32 @@ create table post (
     postMessage varchar(200) not null
 );
 
+-- This is the post inser
+
 insert into post values (
     null,
     "Jake Attard",
     "New social media site postnow",
-    "Please share and spread the news that postnow is now global launched."
+    "Please shatre and spread the news that postnow is now global launched."
+);
+
+insert into post values (
+    null,
+    "Jake Attard",
+    "New social media site postnow",
+    "Please shatre and spread the news that postnow is now global launched."
+);
+
+insert into post values (
+    null,
+    "Jake Attard",
+    "New social media site postnow",
+    "Please shatre and spread the news that postnow is now global launched."
+);
+
+insert into post values (
+    null,
+    "Jake Attard",
+    "New social media site postnow",
+    "Please shatre and spread the news that postnow is now global launched."
 );

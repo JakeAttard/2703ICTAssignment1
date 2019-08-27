@@ -16,6 +16,12 @@ input {
     padding: 5px;
 }
 
+.postNowPosts {
+    border-color: black;
+    border-style: solid;
+    margin: 50px;
+    padding: 20px;
+}
 
 .btn-margin {
     margin: 0px 2px;
