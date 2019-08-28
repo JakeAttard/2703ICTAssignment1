@@ -27,12 +27,8 @@
                 </div>
 
                 <div class="message">
-                    <button type="submit" class="btn btn-secondary">POSTNOW</button>
+                    <button type="submit" class="btn btn-secondary">Update Post</button>
                 </div>
-
-                @if (!empty($createPostError))
-                    <p class="name error">Error: {{$createPostError}}</p>
-                @endif
             </form>
         </div> 
     </div>   

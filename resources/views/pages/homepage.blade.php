@@ -48,10 +48,10 @@
                     <!-- <p>{{$post->postId}}</p> <br> -->
                     
                     <img src="{{asset('images/postnowavatarimg.jpg')}}" class="postNowAvatarImg" alt="PostNow Avatar Picture">
-                    <strong>{{$post->postName}}</strong> <br>
-                    <strong>{{$post->postTitle}}</strong> <br>
+                    {{$post->postName}} <br>
+                    <strong><a href="{{url("postDetail/$post->postId")}}">{{$post->postTitle}}</a></strong> <br>
                     <p>{{$post->postMessage}}<p>
-                    <p>Post Created: {{$post->postCreated}}</p>
+                    <p>Date Posted: {{$post->postCreated}}</p>
                 </div>
                 @endforeach
             </div>
