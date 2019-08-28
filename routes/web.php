@@ -37,3 +37,20 @@ function addPost($postName, $postTitle, $postMessage, $postDate) {
     $postId = DB::getPdo()->lastInsertId();
     return $postId;
 }
+
+Route::get('postDetail/{postId}', function($postId) {
+    $post = getPostDetail($postId);
+    return view('pages.postDetail')->with('post', $post);
+    //dd($item);
+    //dd($id);
+});
+
+function getPostDetail($postId) {
+    $sql = "select * from post where postId=?";
+    $posts = DB::select($sql, array($postId));
+    if (count($posts) != 1){
+        die("Something has gone wrong, invalid query or result: $sql");
+    }
+    $post = $posts[0];
+    return $post;
+}
