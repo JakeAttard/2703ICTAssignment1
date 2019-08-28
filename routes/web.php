@@ -63,11 +63,20 @@ Route::post('updatePost', function() {
     $postTitle = request('postTitle');
     $postMessage = request('postMessage');
     updatePost($postId, $postTitle, $postMessage);
-    //dd($summary);
     return redirect(url("postDetail/$postId"));
 });
 
 function updatePost($postId, $postTitle, $postMessage) {
     $sql = "update post set postTitle = ?, postMessage = ? where postId = ?";
     DB::update($sql, array($postTitle, $postMessage, $postId));
+}
+
+Route::get('deletePost/{postId}', function($postId) {
+    deletePost($postId);
+    return redirect(url("/"));
+});
+
+function deletePost($postId) {
+    $sql = "delete from post where postId = ?";
+    DB::delete($sql, array($postId));
 }
