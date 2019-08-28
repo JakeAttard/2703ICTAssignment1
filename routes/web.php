@@ -41,16 +41,33 @@ function addPost($postName, $postTitle, $postMessage, $postDate) {
 Route::get('postDetail/{postId}', function($postId) {
     $post = getPostDetail($postId);
     return view('pages.postDetail')->with('post', $post);
-    //dd($item);
-    //dd($id);
 });
 
 function getPostDetail($postId) {
     $sql = "select * from post where postId=?";
     $posts = DB::select($sql, array($postId));
     if (count($posts) != 1){
-        die("Something has gone wrong, invalid query or result: $sql");
+        die("Error, please go back. : $sql");
     }
     $post = $posts[0];
     return $post;
+}
+
+Route::get('updatePost/{postId}', function($postId) {
+    $post = getPostDetail($postId);
+    return view("pages.updatePost")->with('post', $post);
+});
+
+Route::post('updatePost', function() {
+    $postId = request('postId');
+    $postTitle = request('postTitle');
+    $postMessage = request('postMessage');
+    updatePost($postId, $postTitle, $postMessage);
+    //dd($summary);
+    return redirect(url("postDetail/$postId"));
+});
+
+function updatePost($postId, $postTitle, $postMessage) {
+    $sql = "update post set postTitle = ?, postMessage = ? where postId = ?";
+    DB::update($sql, array($postTitle, $postMessage, $postId));
 }

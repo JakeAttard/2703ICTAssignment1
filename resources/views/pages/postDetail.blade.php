@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-  Item Details
+  Post Details
 @endsection
 
 @section('contentContainer')
@@ -8,7 +8,7 @@
     <h1>{{$post->postTitle}}</h1>
     <p>{{$post->postMessage}}</p>
 
-    <p><a href="{{url("delete_item_action/$post->postId")}}">Delete Item</a></p>
-    <p><a href="{{url("update_item/$post->postId")}}">Update Item</a></p>
-    <p><a href="{{url("/")}}">Home</a></p>
+    <p><a href="{{url("deletePost/$post->postId")}}">Delete Post</a></p>
+    <p><a href="{{url("updatePost/$post->postId")}}">Update Post</a></p>
+    <p><a href="{{url("/")}}">HomePage</a></p>
 @endsection
