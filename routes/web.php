@@ -19,7 +19,8 @@ Route::get('/', function () {
 Route::get('/', function () {
     $sql = "select * from post order by postId DESC";
     $posts = DB::select($sql);
-    return view('pages.homepage')->with('posts', $posts);
+    $comments = getComments();
+    return view('pages.homepage')->with('posts', $posts)->with('comments', $comments);
 });
 
 Route::post('postAdded', function() {
@@ -40,7 +41,8 @@ function addPost($postName, $postTitle, $postMessage, $postDate) {
 
 Route::get('postDetail/{postId}', function($postId) {
     $post = getPostDetail($postId);
-    return view('pages.postDetail')->with('post', $post);
+    $comments = getComments($postId);
+    return view('pages.postDetail')->with('post', $post)->withComments($comments);
 });
 
 function getPostDetail($postId) {
@@ -80,3 +82,19 @@ function deletePost($postId) {
     $sql = "delete from post where postId = ?";
     DB::delete($sql, array($postId));
 }
+
+// Comments
+
+// Get all the updated comments
+    function getComments() {
+        $sql = "select post.postId, count(comment.commentPostId) as counter from post left join comment on post.postId = comment.commentPostId group by post.postId order by post.postId desc;";    // use left join
+        $comments = DB::select($sql);
+        return $comments;
+    }
+    
+    // Get Comments by the posts id 
+    function getCommentsByid($postId) {
+        $sql = "select * from comment where comment.commentPostId = ?;";
+        $comments = DB::select($sql, array($postId));
+        return $comments;
+    }

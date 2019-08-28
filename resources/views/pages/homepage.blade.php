@@ -45,13 +45,21 @@
                 <!-- This is looping through all the posts -->
                 @foreach($posts as $post)
                 <div class="postNowPosts">
-                    <!-- <p>{{$post->postId}}</p> <br> -->
-                    
                     <img src="{{asset('images/postnowavatarimg.jpg')}}" class="postNowAvatarImg" alt="PostNow Avatar Picture">
                     {{$post->postName}} <br>
                     <strong><a href="{{url("postDetail/$post->postId")}}">{{$post->postTitle}}</a></strong> <br>
                     <p>{{$post->postMessage}}<p>
                     <p>Date Posted: {{$post->postCreated}}</p>
+                </div>
+                 <div class="postNowComments">
+                    <a class="btn btn-primary pull-right" href="{{url("viewComment/$post->postId")}}">
+                        View Comment
+                        @foreach ($comments as $comment)
+                            @if($comment->postId == $post->postId)
+                                <span class="badge">{{$comment->counter}}</span>
+                            @endif
+                        @endforeach
+                    </a>
                 </div>
                 @endforeach
             </div>
