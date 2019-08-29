@@ -15,10 +15,10 @@
                 <input type="hidden" name="postId" value="{{$post->postId}}">
 
                 <div class="name"><label>Name: </label><br>
-                    <input type="text" name="name" placeholder="Enter your name" value="">
+                    <input type="text" name="commentName" placeholder="Enter your name">
                 </div>
                 <div class="message"><label>Message: </label><br>
-                    <textarea id="messagetextarea" name="message" rows="4" placeholder="Enter new message"></textarea>
+                    <textarea id="messagetextarea" name="commentMessage" rows="4" placeholder="Enter new message"></textarea>
                 </div>
                 <div class="message">
                     <button class="btn btn-warning" type="submit">Create new comment</button>

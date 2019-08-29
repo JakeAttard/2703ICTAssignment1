@@ -11,9 +11,10 @@ create table post (
 
 create table comment (
     commentId integer not null primary key autoincrement,
+    commentPostId integer not null,
     commentName varchar(30) not null,
     commentMessage varchar(100) not null,
-    commentPostId integer not null references post(postId)
+    constraint commentPostIdFk foreign key (commentPostId) references post (postId)
 );
 
 -- This is the post insert

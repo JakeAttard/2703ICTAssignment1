@@ -112,7 +112,7 @@ Route::post('commentAdded', function(){
     $commentName = request('commentName');
     $commentMessage = request('commentMessage');
 
-    addComment($postId, $commentName, $commentMessage,);
+    addComment($postId, $commentName, $commentMessage);
     $post = getPostDetail($postId);
     $comments = getCommentsByid($postId);
     $commentName = "";
@@ -122,7 +122,7 @@ Route::post('commentAdded', function(){
 
 // Add comment to the current post
 function addComment($postId, $commentName, $commentMessage) {
-    $sql = "INSERT into comment(commentPostId, commentName, commentMessage) VALUES (?, ?, ?)";
+    $sql = "INSERT into comment (commentPostId, commentName, commentMessage) VALUES (?, ?, ?);";
     DB::insert($sql, array($postId, $commentName, $commentMessage));
     $commentId = DB::getPdo()->lastInsertId();
     return $commentId;
