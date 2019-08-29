@@ -11,10 +11,9 @@ create table post (
 
 create table comment (
     commentId integer not null primary key autoincrement,
-    commentPostId integer not null,
     commentName varchar(30) not null,
     commentMessage varchar(100) not null,
-    foreign key (commentPostId) references comments(commentPostId)
+    commentPostId integer not null references post(postId)
 );
 
 -- This is the post insert
@@ -70,6 +69,13 @@ insert into comment values (
 insert into comment values (
     null,
     2,
+    "Test comment",
+    "Jake Comment Test"
+);
+
+insert into comment values (
+    null,
+    4,
     "Test comment",
     "Jake Comment Test"
 );

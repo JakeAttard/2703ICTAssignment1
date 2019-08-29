@@ -86,15 +86,44 @@ function deletePost($postId) {
 // Comments
 
 // Get all the updated comments
-    function getComments() {
-        $sql = "select post.postId, count(comment.commentPostId) as counter from post left join comment on post.postId = comment.commentPostId group by post.postId order by post.postId desc;";    // use left join
-        $comments = DB::select($sql);
-        return $comments;
-    }
+function getComments() {
+    $sql = "select post.postId, count(comment.commentPostId) as counter from post left join comment on post.postId = comment.commentPostId group by post.postId order by post.postId desc;";    // use left join
+    $comments = DB::select($sql);
+    return $comments;
+}
     
-    // Get Comments by the posts id 
-    function getCommentsByid($postId) {
-        $sql = "select * from comment where comment.commentPostId = ?;";
-        $comments = DB::select($sql, array($postId));
-        return $comments;
-    }
+// Get Comments by the posts id 
+function getCommentsByid($postId) {
+    $sql = "select * from comment where comment.commentPostId = ?;";
+    $comments = DB::select($sql, array($postId));
+    return $comments;
+}
+
+Route::get('viewComment/{postId}', function($postId){
+    $post = getPostDetail($postId);
+    $comments = getCommentsByid($postId);
+    $commentName = "";
+    $commentMessage = "";
+    return view('pages.viewComment')->withPost($post)->withComments($comments)->withName($commentName)->withMessage($commentMessage);
+});
+
+Route::post('commentAdded', function(){
+    $postId = request('postId');
+    $commentName = request('commentName');
+    $commentMessage = request('commentMessage');
+
+    addComment($postId, $commentName, $commentMessage,);
+    $post = getPostDetail($postId);
+    $comments = getCommentsByid($postId);
+    $commentName = "";
+    $commentMessage = "";
+    return view('pages.viewComment')->withPost($post)->withComments($comments)->withName($commentName)->withMessage($commentMessage);
+});
+
+// Add comment to the current post
+function addComment($postId, $commentName, $commentMessage) {
+    $sql = "INSERT into comment(commentPostId, commentName, commentMessage) VALUES (?, ?, ?)";
+    DB::insert($sql, array($postId, $commentName, $commentMessage));
+    $commentId = DB::getPdo()->lastInsertId();
+    return $commentId;
+}

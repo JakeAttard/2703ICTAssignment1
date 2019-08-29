@@ -8,17 +8,17 @@
     <div class="row">
          <!-- Form -->
         <div class="col-sm-4 form-border">
-            <form method="post" action="/addCommentAction">
+            <form method="post" action="{{url('commentAdded')}}">
                 {{csrf_field()}}
                 <div class="name"><h2>Create Comment Form</h2></div>
                 <!-- Error message -->
                 <input type="hidden" name="postId" value="{{$post->postId}}">
 
                 <div class="name"><label>Name: </label><br>
-                    <input type="text" name="name" value="{{$commentName}}" placeholder="Enter your name">
+                    <input type="text" name="name" placeholder="Enter your name" value="">
                 </div>
                 <div class="message"><label>Message: </label><br>
-                    <textarea id="messagetextarea" name="message" rows="4" placeholder="Enter new message">{{$commentMessage}}</textarea>
+                    <textarea id="messagetextarea" name="message" rows="4" placeholder="Enter new message"></textarea>
                 </div>
                 <div class="message">
                     <button class="btn btn-warning" type="submit">Create new comment</button>
@@ -32,7 +32,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading clearfix">
                     <img src="{{asset('images/postnowavatarimg.jpg')}}" class="postNowAvatarImg" alt="PostNow Avatar Picture">>
-                    <span class="username">{{$post->postUsername}}</span>
+                    <span class="username">{{$post->postName}}</span>
                     <h4>{{$post->postTitle}}</h4>
                     <p>{{$post->postMessage}}</p>
                 </div>
