@@ -81,6 +81,8 @@ Route::get('deletePost/{postId}', function($postId) {
 function deletePost($postId) {
     $sql = "delete from post where postId = ?";
     DB::delete($sql, array($postId));
+    $sql = "delete from comment where commentPostId = ?";
+    $code = DB::delete($sql, array($postId));
 }
 
 // Comments
