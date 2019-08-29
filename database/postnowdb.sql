@@ -24,7 +24,7 @@ insert into post values (
     "Jake Attard",
     "New social media site postnow",
     "Please share and spread the news that postnow is now global launched.",
-    "31-08-2019 08:00:00"
+    "30-08-2019 08:00:00"
 );
 
 insert into post values (
@@ -32,7 +32,7 @@ insert into post values (
     "Jake Attard",
     "New social media site postnow",
     "Please share and spread the news that postnow is now global launched.",
-    "31-08-2019 10:00:00"
+    "30-08-2019 10:00:00"
 );
 
 insert into post values (
@@ -40,7 +40,7 @@ insert into post values (
     "Jake Attard",
     "New social media site postnow",
     "Please share and spread the news that postnow is now global launched.",
-    "01-09-2019 08:00:00"
+    "31-09-2019 08:00:00"
 );
 
 insert into comment values (
