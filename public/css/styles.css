@@ -30,18 +30,6 @@ input {
     margin: 0px 2px;
 }
 
-.postDetailsAnchor {
-    text-decoration: none;
-    background-color: #6c757d;
-    color: white;
-    padding: 2px 6px 2px 6px;
-    border-top: 1px solid #CCCCCC;
-    border-right: 1px solid #333333;
-    border-bottom: 1px solid #333333;
-    border-left: 1px solid #CCCCCC;
-    margin-left: 15px;
-}
-
 /*** Form ***/
 
 .form-border {

@@ -28,30 +28,33 @@
          <!-- End Form -->    
          
         <div class="col-sm-8" >
-            <h2>View Comment Page</h2>
-            <div class="panel panel-primary">
-                <div class="panel-heading clearfix">
-                    <img src="{{asset('images/postnowavatarimg.jpg')}}" class="postNowAvatarImg" alt="PostNow Avatar Picture">>
-                    <span class="username">{{$post->postName}}</span>
-                    <h4>{{$post->postTitle}}</h4>
-                    <p>{{$post->postMessage}}</p>
+
+            <div class="postnowFeed">
+                <div class="feedTitle">
+                    <h3>Post</h3>
                 </div>
-                
-                <div class="panel-body">
-                    <ul class="list-group">
+                <div class="postNowPosts">
+                    <img src="{{asset('images/postnowavatarimg.jpg')}}" class="postNowAvatarImg" alt="PostNow Avatar Picture">
+                    {{$post->postName}} <br>
+                    <strong>{{$post->postTitle}}</strong> <br>
+                    <p>{{$post->postMessage}}<p>
+                    <p>Date Posted: {{$post->postCreated}}</p>
+                </div>
+                <div class="feedTitle">
+                    <h3>Comments</h3>
+                </div>
+                <div class="postNowPosts">
                     @forelse ($comments as $comment)
-                        <li class="list-group-item clearfix">
-                            <p>{{$comment->commentName}}</p>
-                            <span>{{$comment->commentMessage}}</span>
-                            <a class="btn btn-danger pull-right" href="{{url("deleteComment/$comment->commentId")}}">Delete</a>
-                        </li>
+                        <p>Comment Name - {{$comment->commentName}}</p>
+                        <p>Comment Message - {{$comment->commentMessage}}</p>
+                        <a class="btn btn-secondary" href="{{url("deleteComment/$comment->commentId")}}">Delete</a>
+                        <hr>
                     @empty
-                    <h3 class="error-middle">no comment</h3>
-                    </ul>
+                    <div class="feedTitle">
+                        <h3>This post currently has no comments!</h3>
+                    </div>
                 </div>
                 @endforelse
             </div>
         </div>
-    </div>
-
 @endsection('contentContainer')
