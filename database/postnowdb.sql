@@ -1,5 +1,6 @@
 drop table if exists post;
 drop table if exists comment;
+drop table if exists user;
 
 create table post (
     postId integer not null primary key autoincrement,

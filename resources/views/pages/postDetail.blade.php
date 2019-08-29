@@ -4,11 +4,24 @@
 @endsection
 
 @section('contentContainer')
-    <input type="hidden" name="id" value="{{ $post->postId }}">
-    <h1>{{$post->postTitle}}</h1>
-    <p>{{$post->postMessage}}</p>
 
-    <p><a href="{{url("deletePost/$post->postId")}}">Delete Post</a></p>
-    <p><a href="{{url("updatePost/$post->postId")}}">Update Post</a></p>
-    <p><a href="{{url("/")}}">HomePage</a></p>
+  <div class="row">
+    <div class="col-sm-4 form-border"> 
+      <div class="name form-group"><h3>What would you like to do?</h3></div>
+      <p><a class="postDetailsAnchor" href="{{url("/")}}">HomePage</a></p>
+      <p><a class="postDetailsAnchor" href="{{url("updatePost/$post->postId")}}">Update Post</a></p>
+      <p><a class="postDetailsAnchor" href="{{url("deletePost/$post->postId")}}">Delete Post</a></p>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="postnowFeed">
+        <div class="feedTitle">
+          <h3>Post Details</h3>
+        </div>
+        <div class="postNowPosts">
+          <input type="hidden" name="id" value="{{ $post->postId }}">
+          Post Title:<strong> {{$post->postTitle}}</strong>
+          <p>Post Message: {{$post->postMessage}}</p>
+    </div>
+  </div>
 @endsection

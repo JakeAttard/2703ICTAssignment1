@@ -51,8 +51,10 @@
                     <p>{{$post->postMessage}}<p>
                     <p>Date Posted: {{$post->postCreated}}</p>
                 </div>
+
+                <!-- Comments -->
                  <div class="postNowComments">
-                    <a class="btn btn-primary pull-right" href="{{url("viewComment/$post->postId")}}">
+                    <a class="btn btn-secondary" href="{{url("viewComment/$post->postId")}}">
                         View Comment
                         @foreach ($comments as $comment)
                             @if($comment->postId == $post->postId)

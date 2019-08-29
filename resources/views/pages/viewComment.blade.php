@@ -11,17 +11,17 @@
             <form method="post" action="{{url('commentAdded')}}">
                 {{csrf_field()}}
                 <div class="name"><h2>Create Comment Form</h2></div>
-                <!-- Error message -->
+                
                 <input type="hidden" name="postId" value="{{$post->postId}}">
 
                 <div class="name"><label>Name: </label><br>
-                    <input type="text" name="commentName" placeholder="Enter your name">
+                    <input type="text" name="commentName" placeholder="Please enter your name">
                 </div>
                 <div class="message"><label>Message: </label><br>
-                    <textarea id="messagetextarea" name="commentMessage" rows="4" placeholder="Enter new message"></textarea>
+                    <textarea id="messagetextarea" name="commentMessage" rows="4" placeholder="Please enter new message"></textarea>
                 </div>
                 <div class="message">
-                    <button class="btn btn-warning" type="submit">Create new comment</button>
+                    <button class="btn btn-secondary" type="submit">Post Comment</button>
                 </div>
             </form>
         </div>
