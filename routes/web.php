@@ -153,6 +153,16 @@ function getPostbyCommentid($commentId) {
     return $postId;
 }
 
+// Recent Post Page
+Route::get('recentPosts', function() {
+    return view('pages.recentPosts');
+});
+
+// Users Page
+Route::get('listUsers', function() {
+    return view('pages.listUsers');
+});
+
 // Documentation Page
 Route::get('documentation', function() {
     return view('pages.documentation');

@@ -29,10 +29,10 @@
                     <a class="nav-link mr-4" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">Recent</a>
+                    <a class="nav-link mr-4" href="{{url("recentPosts")}}">Recent</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">Users</a>
+                    <a class="nav-link mr-4" href="{{url("listUsers")}}">Users</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mr-4" href="{{url("documentation")}}">Documentation</a>
