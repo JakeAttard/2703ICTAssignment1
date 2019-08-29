@@ -155,7 +155,12 @@ function getPostbyCommentid($commentId) {
 
 // Recent Post Page
 Route::get('recentPosts', function() {
-    return view('pages.recentPosts');
+    date_default_timezone_set('Australia/Brisbane');
+    $dateTimeCurrently = date('d-m-Y');
+    $sql = "select * from post where ? between ? and ? order by postId desc";
+    $posts = DB::select($sql, array($dateTimeCurrently, date('d-m-Y', strtotime('-7 days')), $dateTimeCurrently));
+    $comments = getComments();
+    return view('pages.recentPosts')->with('posts', $posts)->with('comments', $comments);
 });
 
 // Users Page

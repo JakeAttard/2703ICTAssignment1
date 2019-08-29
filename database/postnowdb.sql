@@ -19,44 +19,33 @@ create table comment (
 );
 
 -- This is the post insert
-
-
-
 insert into post values (
     null,
     "Jake Attard",
     "New social media site postnow",
-    "Please shatre and spread the news that postnow is now global launched.",
-    "2019-01-01 10:00:00"
+    "Please share and spread the news that postnow is now global launched.",
+    "31-08-2019 08:00:00"
 );
 
 insert into post values (
     null,
     "Jake Attard",
     "New social media site postnow",
-    "Please shatre and spread the news that postnow is now global launched.",
-    "2019-01-01 10:00:00"
+    "Please share and spread the news that postnow is now global launched.",
+    "31-08-2019 10:00:00"
 );
 
 insert into post values (
     null,
     "Jake Attard",
     "New social media site postnow",
-    "Please shatre and spread the news that postnow is now global launched.",
-    "2019-01-01 10:00:00"
-);
-
-insert into post values (
-    null,
-    "Jake Attard",
-    "New social media site postnow",
-    "Please shatre and spread the news that postnow is now global launched.",
-    "2019-01-01 10:00:00"
+    "Please share and spread the news that postnow is now global launched.",
+    "01-09-2019 08:00:00"
 );
 
 insert into comment values (
     null,
-    5,
+    1,
     "Test comment",
     "Jake Comment Test"
 );
@@ -77,7 +66,7 @@ insert into comment values (
 
 insert into comment values (
     null,
-    4,
+    3,
     "Test comment",
     "Jake Comment Test"
 );
