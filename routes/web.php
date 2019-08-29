@@ -127,3 +127,26 @@ function addComment($postId, $commentName, $commentMessage) {
     $commentId = DB::getPdo()->lastInsertId();
     return $commentId;
 }
+
+// Delete comment
+Route::get('deleteComment/{commentId}', function($commentId){
+    $postId = getPostbyCommentid($commentId);
+    deleteComment($commentId);
+    $post = getPostDetail($postId);
+    $comments = getCommentsByid($postId);
+    $name = "";
+    $message = "";
+    return view('pages.viewComment')->withPost($post)->withComments($comments)->withName($name)->withMessage($message);
+});
+
+function deleteComment($commentId) {
+    $sql = "delete from comment where commentId = ?" ;
+    DB::delete($sql, array($commentId));
+}
+
+function getPostbyCommentid($commentId) {
+    $sql = "select commentPostId from comment where commentId = ?;";
+    $postsId= DB::select($sql, array($commentId));
+    $postId = $postsId[0]->commentPostId;
+    return $postId;
+}
