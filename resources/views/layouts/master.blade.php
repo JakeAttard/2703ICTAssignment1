@@ -23,19 +23,22 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link mr-4" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link mr-4" href="{{url("/")}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mr-4" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">Friends</a>
+                    <a class="nav-link mr-4" href="#">Recent</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">Sign Up</a>
+                    <a class="nav-link mr-4" href="#">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">LogIn</a>
+                    <a class="nav-link mr-4" href="{{url("documentation")}}">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-4" href="{{url("erdiagram")}}">ERD Diagram</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -45,29 +48,6 @@
         </div>
     </nav>
     <!-- Navbar Ends -->
-        <!-- NavBar-->
-        <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <a class="navbar-brand ml-4" href="#">PostNow</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link mr-5" href="#">Photos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mr-5" href="#">Friends</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link mr-5" href="#">Sign Up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mr-5" href="#">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </nav> -->
 
         <!-- Image in the contentContainer div -->
         <!-- style="background-image: url('{{asset('images/postnowbackgroundimage.jpeg')}}')" -->

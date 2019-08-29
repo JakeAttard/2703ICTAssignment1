@@ -152,3 +152,13 @@ function getPostbyCommentid($commentId) {
     $postId = $postsId[0]->commentPostId;
     return $postId;
 }
+
+// Documentation Page
+Route::get('documentation', function() {
+    return view('pages.documentation');
+});
+
+// ER Diagram
+Route::get('erdiagram', function() {
+    return view('pages.erdiagram');
+});
