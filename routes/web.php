@@ -165,7 +165,15 @@ Route::get('recentPosts', function() {
 
 // Users Page
 Route::get('listUsers', function() {
-    return view('pages.listUsers');
+    $sql = "select distinct postName from post";
+    $postNames = DB::select($sql);
+    return view('pages.listUsers')->with('postNames', $postNames);
+});
+
+Route::get('listUsers/{postName}', function ($postName) {
+    $sql = "select * from post where postName = ".'"'.$postName.'"'."order by id desc";
+    $posts = DB::select($sql);
+    return view('userProfile')->with('posts', $posts);
 });
 
 // Documentation Page
