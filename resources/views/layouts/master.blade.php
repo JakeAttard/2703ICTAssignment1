@@ -26,9 +26,6 @@
                     <a class="nav-link mr-4" href="{{url("/")}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mr-4" href="#">About</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link mr-4" href="{{url("recentPosts")}}">Recent</a>
                 </li>
                 <li class="nav-item">
