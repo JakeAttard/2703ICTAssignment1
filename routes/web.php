@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     $userPosts = getPosts();
     return view('layouts/master');
@@ -86,7 +84,6 @@ function deletePost($postId) {
 }
 
 // Comments
-
 // Get all the updated comments
 function getComments() {
     $sql = "select post.postId, count(comment.commentPostId) as counter from post left join comment on post.postId = comment.commentPostId group by post.postId order by post.postId desc;";    // use left join
@@ -113,7 +110,6 @@ Route::post('commentAdded', function(){
     $postId = request('postId');
     $commentName = request('commentName');
     $commentMessage = request('commentMessage');
-
     addComment($postId, $commentName, $commentMessage);
     $post = getPostDetail($postId);
     $comments = getCommentsByid($postId);

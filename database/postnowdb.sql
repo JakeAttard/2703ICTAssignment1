@@ -1,6 +1,5 @@
 drop table if exists post;
 drop table if exists comment;
-drop table if exists user;
 
 create table post (
     postId integer not null primary key autoincrement,
@@ -12,10 +11,9 @@ create table post (
 
 create table comment (
     commentId integer not null primary key autoincrement,
-    commentPostId integer not null,
+    commentPostId integer not null REFERENCES post(postId),
     commentName varchar(30) not null,
-    commentMessage varchar(100) not null,
-    constraint commentPostIdFk foreign key (commentPostId) references post (postId)
+    commentMessage varchar(100) not null
 );
 
 -- This is the post insert
