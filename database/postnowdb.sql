@@ -5,7 +5,7 @@ create table post (
     postId integer not null primary key autoincrement,
     postName varchar(30) not null,
     postTitle varchar(50) not null,
-    postMessage varchar(200) not null,
+    postMessage text(200) not null,
     postCreated datetime not null
 );
 
@@ -13,7 +13,7 @@ create table comment (
     commentId integer not null primary key autoincrement,
     commentPostId integer not null REFERENCES post(postId),
     commentName varchar(30) not null,
-    commentMessage varchar(100) not null
+    commentMessage text(100) not null
 );
 
 -- This is the post insert

@@ -21,16 +21,26 @@ input {
     margin-top: 15px;
 }
 
+.erdiagramTitle {
+    text-align: center;
+    margin-top: 15px;
+}
+
 .postNowAvatarImg {
     width: 80px;
     height: 80px;
 }
 
+.ERDiagram {
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .btn-margin {
     margin: 0px 2px;
 }
-
-/*** Form ***/
 
 .form-border {
     border: 5px;
@@ -46,7 +56,7 @@ input {
 }
 
 #messagetextarea {
-    width: 100%;    /* keep the input width as width as possible */
+    width: 100%;
     border: 2px;
     border-color: black;
     border-style: solid;
