@@ -16,15 +16,15 @@
                 
                 <div class="name">
                     <label>User Name: </label><br>
-                    <input type="text" name="postName" placeholder="Please enter your name">
+                    <input type="text" name="postName" placeholder="Please enter your name" required>
                 </div>
 
                 <div class="title"><label>Post Title: </label><br>
-                    <input type="text" name="postTitle" placeholder="Please enter a title">
+                    <input type="text" name="postTitle" placeholder="Please enter a title" required>
                 </div>
 
                 <div class="message"><label>Post Message: </label><br>
-                <textarea id="messagetextarea" name="postMessage" rows="4" placeholder="Please enter new message"></textarea>
+                <textarea id="messagetextarea" name="postMessage" rows="4" placeholder="Please enter new message" required></textarea>
                 </div>
 
                 <div class="message">

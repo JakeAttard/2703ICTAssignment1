@@ -16,11 +16,11 @@
                 <div class="name form-group"><h3>Update Post</h3></div>
 
                 <div class="title"><label>Post Title: </label><br>
-                    <input type="text" name="postTitle" value="{{$post->postTitle}}">
+                    <input type="text" name="postTitle" value="{{$post->postTitle}}" required>
                 </div>
 
                 <div class="message"><label>Post Message: </label><br>
-                <textarea id="messagetextarea" name="postMessage" rows="4">{{$post->postMessage}}</textarea>
+                <textarea id="messagetextarea" name="postMessage" rows="4" required>{{$post->postMessage}}</textarea>
                 </div>
 
                 <div class="message">
