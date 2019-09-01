@@ -13,7 +13,7 @@
         @forelse ($postNames as $postName)
             <div class="postNowPosts">
                 <img src="{{asset('images/postnowavatarimg.jpg')}}" class="postNowAvatarImg" alt="PostNow Avatar Picture">
-                <a href="{!!'usersProfile/'.$postName->postName !!}">{{$postName->postName}}</a>
+                <a href="{!!'userProfile/'.$postName->postName !!}">{{$postName->postName}}</a>
             </div>
         @endforeach
     </div>

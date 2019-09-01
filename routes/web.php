@@ -104,11 +104,23 @@ Route::get('listUsers', function() {
     return view('pages.listUsers')->with('postNames', $postNames);
 });
 
-Route::get('listUsers/{postName}', function ($postName) {
-    $sql = "select * from post where postName = ".'"'.$postName.'"'."order by id desc";
-    $posts = DB::select($sql);
-    return view('userProfile')->with('posts', $posts);
+function getUsers() {
+    $sql = "select distinct(postName) from post";
+    $users = DB::select($sql);
+    return $users;
+}
+
+Route::get('userProfile/{postName}', function($postName) {
+    $users = getUsers();
+    $userPosts = getUserPosts($postName);
+    return view('pages.userProfile')->with('users', $users)->with('postName', $postName)->with('posts', $userPosts);
 });
+
+function getUserPosts($postName) {
+    $sql = "select * from post where postName = ? order by postId desc";
+    $posts = DB::select($sql, array($postName));
+    return $posts;
+}
 
 // Documentation Page
 Route::get('documentation', function() {

@@ -19,5 +19,6 @@
             <p>{{$post->postMessage}}<p>
             <p>Date Posted: {{$post->postCreated}}</p>
         </div>
+        @endforeach
     </div>
 @endsection('contentContainer')

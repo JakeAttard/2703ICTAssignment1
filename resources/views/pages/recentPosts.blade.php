@@ -7,7 +7,7 @@
 @section('contentContainer')
     <div class="postnowFeed">
         <div class="feedTitle">
-            <h3>Recent Posts</h3>
+            <h3>Posts from last 7 days</h3>
         </div>
                 
         <!-- This is looping through all the posts -->

@@ -19,7 +19,7 @@ create table comment (
 -- This is the post insert
 insert into post values (
     null,
-    "Jake Attard",
+    "JakeAttard",
     "New social media site postnow",
     "Please share and spread the news that postnow is now global launched.",
     "30-08-2019 08:00:00"
@@ -27,7 +27,7 @@ insert into post values (
 
 insert into post values (
     null,
-    "Jake Attard",
+    "JakeAttard",
     "New social media site postnow",
     "Please share and spread the news that postnow is now global launched.",
     "30-08-2019 10:00:00"
@@ -35,7 +35,7 @@ insert into post values (
 
 insert into post values (
     null,
-    "Jake Attard",
+    "JakeAttard",
     "New social media site postnow",
     "Please share and spread the news that postnow is now global launched.",
     "31-09-2019 08:00:00"
