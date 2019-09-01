@@ -28,6 +28,7 @@ function updatePost($postId, $postTitle, $postMessage) {
 }
 
 // deletePost function
+// deletes all comments from the post then deletes the post
 function deletePost($postId) {
     $sql = "delete from comment where commentPostId = ?";
     $code = DB::delete($sql, array($postId));
@@ -58,11 +59,13 @@ function addComment($postId, $commentName, $commentMessage) {
     return $commentId;
 }
 
+// Users can delete comments
 function deleteComment($commentId) {
     $sql = "delete from comment where commentId = ?" ;
     DB::delete($sql, array($commentId));
 }
 
+// Displaying post comments
 function getPostbyCommentid($commentId) {
     $sql = "select commentPostId from comment where commentId = ?;";
     $postsId= DB::select($sql, array($commentId));
@@ -71,12 +74,14 @@ function getPostbyCommentid($commentId) {
 }
 
 // Users
+// Gets all users who have created a post
 function getUsersProfile() {
     $sql = "select distinct(postName) from post";
     $users = DB::select($sql);
     return $users;
 }
 
+// All posts by the user selected
 function getUserPosts($postName) {
     $sql = "select * from post where postName = ? order by postId desc";
     $posts = DB::select($sql, array($postName));
