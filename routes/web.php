@@ -53,6 +53,7 @@ Route::post('updatePost', function() {
 });
 
 Route::get('deletePost/{postId}', function($postId) {
+    deleteComment($postId);
     deletePost($postId);
     return redirect(url("/"));
 });

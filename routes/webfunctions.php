@@ -1,6 +1,8 @@
 <?php
 
 // AddPost Function
+// Passing through the postName, postTitle, postMessage and postDate properties
+// Inserting the data into the Post values
 function addPost($postName, $postTitle, $postMessage, $postDate) {
     $query = "INSERT into Post(postName, postTitle, postMessage, postCreated) VALUES (?, ?, ?, ?)";
     DB::insert($query,array($postName, $postTitle, $postMessage, $postDate));
@@ -27,10 +29,11 @@ function updatePost($postId, $postTitle, $postMessage) {
 
 // deletePost function
 function deletePost($postId) {
-    $sql = "delete from post where postId = ?";
-    DB::delete($sql, array($postId));
     $sql = "delete from comment where commentPostId = ?";
     $code = DB::delete($sql, array($postId));
+    $sql = "delete from post where postId = ?";
+    DB::delete($sql, array($postId));
+   
 }
 
 // Get all the updated comments
