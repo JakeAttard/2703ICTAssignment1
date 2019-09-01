@@ -41,4 +41,9 @@
         <p>1. Documentation created to describe the tasks completed along with approaches.</p>
         <p>2. Enitity Relationship Diagram created for the database.</p>
     </div>
+
+    <div class="postNowPosts">
+        <strong><p>Github:</p></strong>
+        <p>PostNow public repository can be found <a href="https://github.com/JakeAttard/2703ICTAssignment1" target="blank">here</a>.</p>
+    </div>
 @endsection('contentContainer')
