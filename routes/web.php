@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     $userPosts = getPosts();
     return view('layouts/master');
@@ -38,16 +39,6 @@ Route::get('postDetail/{postId}', function($postId) {
     return view('pages.postDetail')->with('post', $post)->withComments($comments);
 });
 
-function getPostDetail($postId) {
-    $sql = "select * from post where postId=?";
-    $posts = DB::select($sql, array($postId));
-    if (count($posts) != 1){
-        die("Error, please go back. : $sql");
-    }
-    $post = $posts[0];
-    return $post;
-}
-
 Route::get('updatePost/{postId}', function($postId) {
     $post = getPostDetail($postId);
     return view("pages.updatePost")->with('post', $post);
@@ -61,46 +52,18 @@ Route::post('updatePost', function() {
     return redirect(url("postDetail/$postId"));
 });
 
-function updatePost($postId, $postTitle, $postMessage) {
-    $sql = "update post set postTitle = ?, postMessage = ? where postId = ?";
-    DB::update($sql, array($postTitle, $postMessage, $postId));
-}
-
 Route::get('deletePost/{postId}', function($postId) {
     deletePost($postId);
     return redirect(url("/"));
 });
 
-function deletePost($postId) {
-    $sql = "delete from post where postId = ?";
-    DB::delete($sql, array($postId));
-    $sql = "delete from comment where commentPostId = ?";
-    $code = DB::delete($sql, array($postId));
-}
-
 // Recent Posts
-
 Route::get('recentPosts', function () {
     $sql = "select * from post order by postId DESC";
     $posts = DB::select($sql);
     $comments = getComments();
     return view('pages.recentPosts')->with('posts', $posts)->with('comments', $comments);
 });
-
-// Comments
-// Get all the updated comments
-function getComments() {
-    $sql = "select post.postId, count(comment.commentPostId) as counter from post left join comment on post.postId = comment.commentPostId group by post.postId order by post.postId desc;";    // use left join
-    $comments = DB::select($sql);
-    return $comments;
-}
-    
-// Get Comments by the posts id 
-function getCommentsByid($postId) {
-    $sql = "select * from comment where comment.commentPostId = ?;";
-    $comments = DB::select($sql, array($postId));
-    return $comments;
-}
 
 Route::get('viewComment/{postId}', function($postId){
     $post = getPostDetail($postId);
@@ -122,14 +85,6 @@ Route::post('commentAdded', function(){
     return view('pages.viewComment')->withPost($post)->withComments($comments)->withName($commentName)->withMessage($commentMessage);
 });
 
-// Add comment to the current post
-function addComment($postId, $commentName, $commentMessage) {
-    $sql = "INSERT into comment (commentPostId, commentName, commentMessage) VALUES (?, ?, ?);";
-    DB::insert($sql, array($postId, $commentName, $commentMessage));
-    $commentId = DB::getPdo()->lastInsertId();
-    return $commentId;
-}
-
 // Delete comment
 Route::get('deleteComment/{commentId}', function($commentId){
     $postId = getPostbyCommentid($commentId);
@@ -140,18 +95,6 @@ Route::get('deleteComment/{commentId}', function($commentId){
     $message = "";
     return view('pages.viewComment')->withPost($post)->withComments($comments)->withName($name)->withMessage($message);
 });
-
-function deleteComment($commentId) {
-    $sql = "delete from comment where commentId = ?" ;
-    DB::delete($sql, array($commentId));
-}
-
-function getPostbyCommentid($commentId) {
-    $sql = "select commentPostId from comment where commentId = ?;";
-    $postsId= DB::select($sql, array($commentId));
-    $postId = $postsId[0]->commentPostId;
-    return $postId;
-}
 
 // Users Page
 Route::get('listUsers', function() {

@@ -39,7 +39,7 @@
 
             <div class="postnowFeed">
                 <div class="feedTitle">
-                    <h3>PostNow Feed</h3>
+                    <h3>PostNow World Feed</h3>
                 </div>
                 
                 <!-- This is looping through all the posts -->
