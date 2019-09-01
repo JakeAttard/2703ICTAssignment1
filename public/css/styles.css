@@ -26,6 +26,11 @@ input {
     margin-top: 15px;
 }
 
+.documentationTitle {
+    text-align: center;
+    margin-top: 15px;
+}
+
 .postNowAvatarImg {
     width: 80px;
     height: 80px;
