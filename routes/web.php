@@ -83,6 +83,15 @@ function deletePost($postId) {
     $code = DB::delete($sql, array($postId));
 }
 
+// Recent Posts
+
+Route::get('recentPosts', function () {
+    $sql = "select * from post order by postId DESC";
+    $posts = DB::select($sql);
+    $comments = getComments();
+    return view('pages.recentPosts')->with('posts', $posts)->with('comments', $comments);
+});
+
 // Comments
 // Get all the updated comments
 function getComments() {
@@ -148,16 +157,6 @@ function getPostbyCommentid($commentId) {
     $postId = $postsId[0]->commentPostId;
     return $postId;
 }
-
-// Recent Post Page
-Route::get('recentPosts', function() {
-    date_default_timezone_set('Australia/Brisbane');
-    $dateTimeCurrently = date('d-m-Y');
-    $sql = "select * from post where ? between ? and ? order by postId desc";
-    $posts = DB::select($sql, array($dateTimeCurrently, date('d-m-Y', strtotime('-7 days')), $dateTimeCurrently));
-    $comments = getComments();
-    return view('pages.recentPosts')->with('posts', $posts)->with('comments', $comments);
-});
 
 // Users Page
 Route::get('listUsers', function() {
