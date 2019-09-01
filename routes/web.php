@@ -11,11 +11,13 @@
 |
 */
 
+// Master Page
 Route::get('/', function () {
     $userPosts = getPosts();
     return view('layouts/master');
 });
 
+// HomePage
 Route::get('/', function () {
     $sql = "select * from post order by postId DESC";
     $posts = DB::select($sql);
@@ -23,6 +25,7 @@ Route::get('/', function () {
     return view('pages.homepage')->with('posts', $posts)->with('comments', $comments);
 });
 
+// Post Added
 Route::post('postAdded', function() {
     $postName = request('postName');
     $postTitle = request('postTitle');
@@ -39,6 +42,7 @@ Route::get('postDetail/{postId}', function($postId) {
     return view('pages.postDetail')->with('post', $post)->withComments($comments);
 });
 
+// User able to update a post
 Route::get('updatePost/{postId}', function($postId) {
     $post = getPostDetail($postId);
     return view("pages.updatePost")->with('post', $post);
@@ -52,6 +56,7 @@ Route::post('updatePost', function() {
     return redirect(url("postDetail/$postId"));
 });
 
+// User able to delete a post
 Route::get('deletePost/{postId}', function($postId) {
     deleteComment($postId);
     deletePost($postId);
@@ -66,6 +71,7 @@ Route::get('recentPosts', function () {
     return view('pages.recentPosts')->with('posts', $posts)->with('comments', $comments);
 });
 
+// User can view comments
 Route::get('viewComment/{postId}', function($postId){
     $post = getPostDetail($postId);
     $comments = getCommentsByid($postId);
@@ -74,6 +80,7 @@ Route::get('viewComment/{postId}', function($postId){
     return view('pages.viewComment')->withPost($post)->withComments($comments)->withName($commentName)->withMessage($commentMessage);
 });
 
+// User can add a comment to a existing post
 Route::post('commentAdded', function(){
     $postId = request('postId');
     $commentName = request('commentName');
@@ -97,37 +104,26 @@ Route::get('deleteComment/{commentId}', function($commentId){
     return view('pages.viewComment')->withPost($post)->withComments($comments)->withName($name)->withMessage($message);
 });
 
-// Users Page
+// List of users
 Route::get('listUsers', function() {
     $sql = "select distinct postName from post";
     $postNames = DB::select($sql);
     return view('pages.listUsers')->with('postNames', $postNames);
 });
 
-function getUsers() {
-    $sql = "select distinct(postName) from post";
-    $users = DB::select($sql);
-    return $users;
-}
-
+// UserProfile Page
 Route::get('userProfile/{postName}', function($postName) {
-    $users = getUsers();
+    $users = getUsersProfile();
     $userPosts = getUserPosts($postName);
     return view('pages.userProfile')->with('users', $users)->with('postName', $postName)->with('posts', $userPosts);
 });
-
-function getUserPosts($postName) {
-    $sql = "select * from post where postName = ? order by postId desc";
-    $posts = DB::select($sql, array($postName));
-    return $posts;
-}
 
 // Documentation Page
 Route::get('documentation', function() {
     return view('pages.documentation');
 });
 
-// ER Diagram
+// ER Diagram Page
 Route::get('erdiagram', function() {
     return view('pages.erdiagram');
 });

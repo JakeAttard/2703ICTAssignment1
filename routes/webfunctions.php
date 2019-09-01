@@ -69,4 +69,18 @@ function getPostbyCommentid($commentId) {
     $postId = $postsId[0]->commentPostId;
     return $postId;
 }
+
+// Users
+function getUsersProfile() {
+    $sql = "select distinct(postName) from post";
+    $users = DB::select($sql);
+    return $users;
+}
+
+function getUserPosts($postName) {
+    $sql = "select * from post where postName = ? order by postId desc";
+    $posts = DB::select($sql, array($postName));
+    return $posts;
+}
+
 ?>
