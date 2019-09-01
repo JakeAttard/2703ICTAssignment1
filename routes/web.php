@@ -1,4 +1,5 @@
 <?php
+    include "webfunctions.php";
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,14 +29,8 @@ Route::post('postAdded', function() {
     date_default_timezone_set('Australia/Brisbane');
     $postDate = date('d-m-Y H:i:s');
     $postId = addPost($postName,$postTitle,$postMessage, $postDate);
+    return redirect('/');
 });
-
-function addPost($postName, $postTitle, $postMessage, $postDate) {
-    $query = "INSERT into Post(postName, postTitle, postMessage, postCreated) VALUES (?, ?, ?, ?)";
-    DB::insert($query,array($postName, $postTitle, $postMessage, $postDate));
-    $postId = DB::getPdo()->lastInsertId();
-    return $postId;
-}
 
 Route::get('postDetail/{postId}', function($postId) {
     $post = getPostDetail($postId);
